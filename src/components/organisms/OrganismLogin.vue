@@ -51,9 +51,11 @@ export default {
         ) {
           this.$store.commit("setAuthenticated", true);
           this.$router.replace({ name: "user" });
+        } else {
+          alert("The username or password is not correct");
         }
       } else {
-        alert("The username or password is not correct");
+        alert("Please fill out");
       }
     },
   },
