@@ -1,9 +1,10 @@
 <template>
   <div>
-    <h1>Welcome</h1>
+    <h1>Welcome {{ $store.getters.fullName }}</h1>
     <hr />
   </div>
 </template>
+
 <script>
 export default {
   name: "UserPage",

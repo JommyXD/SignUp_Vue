@@ -15,7 +15,7 @@ export default {
 };
 </script>
 
-<style scope>
+<style scoped>
 .login-button {
   padding-top: 5px;
   padding-bottom: 5px;

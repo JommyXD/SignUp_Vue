@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="login-text">Login</div>
+    <div class="login-text">Sign Up</div>
     <div class="my-box">
       <atom-input
         type="text"
@@ -8,54 +8,53 @@
         v-model="input.username"
       ></atom-input>
       <atom-input
+        type="text"
+        placeholder="firstname"
+        v-model="input.firstname"
+      ></atom-input>
+      <atom-input
+        type="text"
+        placeholder="lastname"
+        v-model="input.lastname"
+      ></atom-input>
+      <atom-input
         type="password"
         placeholder="password"
         v-model="input.password"
       ></atom-input>
+      <atom-input
+        type="password"
+        placeholder="confrim password"
+        v-model="input.confrimpassword"
+      ></atom-input>
     </div>
     <div class="my-login">
-      <atom-button :callBack="login">Login</atom-button>
+      <atom-button :callBack="signUp">Sign Up</atom-button>
     </div>
-    <div class="sign-up">
-      Don't have on account? <a href="/signup">Sign Up</a>
-    </div>
+    <div class="log-in">I have account <a href="/login">Log in</a></div>
   </div>
 </template>
 
 <script>
 import AtomButton from "../atoms/AtomButton.vue";
 import AtomInput from "../atoms/AtomInput.vue";
-
 export default {
-  name: "OrganismsLogin",
-  components: {
-    AtomInput,
-    AtomButton,
-  },
+  components: { AtomInput, AtomButton },
+  name: "OrganismSignUp",
   data() {
     return {
       input: {
         username: "",
+        firstname: "",
+        lastname: "",
         password: "",
+        confrimpassword: "",
       },
     };
   },
   methods: {
-    login() {
-      console.log("Login");
-      if (this.input.username != "" || this.input.password != "") {
-        if (
-          this.input.username == this.$store.state.user.username &&
-          this.input.password == this.$store.state.user.password
-        ) {
-          this.$store.commit("setAuthenticated", true);
-          this.$router.replace({ name: "user" });
-        } else {
-          alert("The username or password is not correct");
-        }
-      } else {
-        alert("Please fill out");
-      }
+    signUp() {
+      console.log(this.input);
     },
   },
 };
@@ -63,13 +62,13 @@ export default {
 
 <style scoped>
 .container {
-  height: 420px;
+  height: 550px;
   width: 350px;
   background-color: white;
   border-radius: 5px;
   box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
   margin: auto;
-  margin-top: 150px;
+  margin-top: 100px;
 }
 
 .login-text {
@@ -90,8 +89,8 @@ export default {
   margin: auto;
 }
 
-.sign-up {
-  margin-top: 80px;
+.log-in {
+  margin-top: 50px;
   font-size: 12px;
   font-weight: 100;
   text-align: center;

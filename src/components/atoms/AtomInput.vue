@@ -25,7 +25,7 @@ export default {
 };
 </script>
 
-<style scope>
+<style scoped>
 input {
   width: 280px;
   height: 20px;

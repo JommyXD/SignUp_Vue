@@ -10,10 +10,14 @@ export default new Vuex.Store({
       id: 1,
       username: "admin",
       password: 1234,
-      fullname: "Sittisak Seti"
+      firstname: "Sittisak",
+      lastname: "Seti",
     }
   },
   getters: {
+    fullName:state => {
+      return state.user.firstname + ' ' + state.user.lastname
+    }
   },
   mutations: {
     setAuthenticated(state, status) {
