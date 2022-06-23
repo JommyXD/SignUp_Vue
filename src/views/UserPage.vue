@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>UserPage</h1>
+    <h1>Welcome</h1>
     <hr />
   </div>
 </template>
@@ -9,4 +9,10 @@ export default {
   name: "UserPage",
 };
 </script>
-<style scope></style>
+
+<style scope>
+h1 {
+  text-align: center;
+  color: white;
+}
+</style>
