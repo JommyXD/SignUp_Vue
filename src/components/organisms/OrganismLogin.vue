@@ -23,6 +23,8 @@
 <script>
 import AtomButton from "../atoms/AtomButton.vue";
 import AtomInput from "../atoms/AtomInput.vue";
+import store from "../../store";
+
 export default {
   name: "OrganismsLogin",
   components: {
@@ -32,8 +34,8 @@ export default {
   data() {
     return {
       input: {
-        username: "jom",
-        password: "123",
+        username: "",
+        password: "",
       },
     };
   },
@@ -42,9 +44,14 @@ export default {
       console.log("Login");
       console.log(this.input.username);
       console.log(this.input.password);
-      if (this.input.username == "admin" && this.input.password == "1234") {
-        this.$store.commit("setAuthenticated", true);
-        this.$router.replace({ name: "user" });
+      if (this.input.username != "" || this.input.password != "") {
+        if (
+          this.input.username == store.state.user.username &&
+          this.input.password == store.state.user.password
+        ) {
+          this.$store.commit("setAuthenticated", true);
+          this.$router.replace({ name: "user" });
+        }
       } else {
         alert("The username or password is not correct");
       }

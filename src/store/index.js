@@ -5,7 +5,13 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    authenticated: false
+    authenticated: false,
+    user: {
+      id: 1,
+      username: "admin",
+      password: 1234,
+      fullname: "Sittisak Seti"
+    }
   },
   getters: {
   },
