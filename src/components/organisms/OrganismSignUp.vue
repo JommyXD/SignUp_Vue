@@ -71,6 +71,8 @@ export default {
           alert("Password not match!!!");
         } else {
           console.log(this.input);
+          this.$store.commit("addUser", this.input);
+          this.$router.push("/login");
         }
       }
     },

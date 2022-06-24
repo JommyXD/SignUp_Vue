@@ -45,8 +45,8 @@ export default {
       console.log("Login");
       if (this.input.username != "" || this.input.password != "") {
         if (
-          this.input.username == this.$store.state.user.username &&
-          this.input.password == this.$store.state.user.password
+          this.input.username == this.$store.state.users.username &&
+          this.input.password == this.$store.state.users.password
         ) {
           this.$store.commit("setAuthenticated", true);
           this.$router.replace({ name: "user" });
