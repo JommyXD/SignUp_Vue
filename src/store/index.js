@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     authenticated: false,
+    myuser: 0,
     users: [
       {
       id: 1,
@@ -29,8 +30,6 @@ export default new Vuex.Store({
       let index = state.users.findIndex(item => {
         return item.id == id
       })
-      console.log("My index is");
-      console.log(index);
       return state.users[index].firstname + ' ' + state.users[index].lastname;
     }
   },
@@ -41,7 +40,6 @@ export default new Vuex.Store({
     addUser(state, user){
       state.users.push(user);
       console.log("this step");
-      console.log(user);
     }
   },
   actions: {

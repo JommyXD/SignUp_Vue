@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Welcome {{ $store.getters.fullName(2) }}</h1>
+    <h1>Welcome {{ $store.getters.fullName(this.num) }}</h1>
     <hr />
   </div>
 </template>
@@ -8,6 +8,11 @@
 <script>
 export default {
   name: "UserPage",
+  data() {
+    return {
+      num: this.$store.state.myuser,
+    };
+  },
 };
 </script>
 
