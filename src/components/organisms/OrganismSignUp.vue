@@ -26,7 +26,7 @@
       <atom-input
         type="password"
         placeholder="confrim password"
-        v-model="input.confrimpassword"
+        v-model="confrimpassword"
         :check="wrongInput"
       ></atom-input>
     </div>
@@ -47,11 +47,11 @@ export default {
     return {
       input: {
         username: "",
+        password: "",
         firstname: "",
         lastname: "",
-        password: "",
-        confrimpassword: "",
       },
+      confrimpassword: "",
       wrongInput: false,
     };
   },
@@ -62,11 +62,11 @@ export default {
         this.input.firstname == "" ||
         this.input.lastname == "" ||
         this.input.password == "" ||
-        this.input.confrimpassword == ""
+        this.confrimpassword == ""
       ) {
         alert("Please fill out");
       } else {
-        if (this.input.password != this.input.confrimpassword) {
+        if (this.input.password != this.confrimpassword) {
           this.wrongInput = true;
           alert("Password not match!!!");
         } else {

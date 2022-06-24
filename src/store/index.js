@@ -38,8 +38,14 @@ export default new Vuex.Store({
       state.authenticated = status
     },
     addUser(state, user){
-      state.users.push(user);
+      var id = state.users.length + 1
+      var newUser = {
+        id,
+        ...user
+      }
+      state.users.push(newUser);
       console.log("this step");
+      console.log(newUser);
     }
   },
   actions: {
