@@ -26,12 +26,12 @@ export default new Vuex.Store({
   },
   getters: {
     fullName:state => id => {
-      let index = state.users.findIndex(e => {
-        e == id
+      let index = state.users.findIndex(item => {
+        return item.id == id
       })
       console.log("My index is");
       console.log(index);
-      return state.users[index+1].firstname + ' ' + state.users[index+1].lastname;
+      return state.users[index].firstname + ' ' + state.users[index].lastname;
     }
   },
   mutations: {

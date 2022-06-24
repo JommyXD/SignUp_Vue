@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Welcome {{ $store.getters.fullName(1) }}</h1>
+    <h1>Welcome {{ $store.getters.fullName(2) }}</h1>
     <hr />
   </div>
 </template>
