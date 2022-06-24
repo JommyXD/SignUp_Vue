@@ -21,11 +21,13 @@
         type="password"
         placeholder="password"
         v-model="input.password"
+        :check="wrongInput"
       ></atom-input>
       <atom-input
         type="password"
         placeholder="confrim password"
         v-model="input.confrimpassword"
+        :check="wrongInput"
       ></atom-input>
     </div>
     <div class="my-login">
@@ -50,11 +52,27 @@ export default {
         password: "",
         confrimpassword: "",
       },
+      wrongInput: false,
     };
   },
   methods: {
     signUp() {
-      console.log(this.input);
+      if (
+        this.input.username == "" ||
+        this.input.firstname == "" ||
+        this.input.lastname == "" ||
+        this.input.password == "" ||
+        this.input.confrimpassword == ""
+      ) {
+        alert("Please fill out");
+      } else {
+        if (this.input.password != this.input.confrimpassword) {
+          this.wrongInput = true;
+          alert("Password not match!!!");
+        } else {
+          console.log(this.input);
+        }
+      }
     },
   },
 };

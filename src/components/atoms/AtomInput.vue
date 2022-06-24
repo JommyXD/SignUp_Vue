@@ -5,6 +5,7 @@
       :placeholder="placeholder"
       :value="modelValue"
       @input="updateValue($event.target.value)"
+      :class="{ active: check }"
     />
   </div>
 </template>
@@ -16,6 +17,7 @@ export default {
     placeholder: String,
     type: String,
     modelValue: String,
+    check: Boolean,
   },
   methods: {
     updateValue(value) {
@@ -32,5 +34,8 @@ input {
   border: none;
   border-bottom: 1px solid #e1e1e1;
   margin-bottom: 30px;
+}
+.active {
+  border-bottom: 1px solid red;
 }
 </style>
