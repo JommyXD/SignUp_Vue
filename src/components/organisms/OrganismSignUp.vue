@@ -72,6 +72,7 @@ export default {
         } else {
           console.log(this.input);
           this.$store.commit("addUser", this.input);
+          alert("success");
           this.$router.push("/login");
         }
       }

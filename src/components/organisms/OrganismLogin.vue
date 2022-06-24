@@ -47,15 +47,19 @@ export default {
         let index = this.$store.state.users.findIndex((item) => {
           return item.username == this.input.username;
         });
-        if (
-          this.input.username == this.$store.state.users[index].username &&
-          this.input.password == this.$store.state.users[index].password
-        ) {
-          this.$store.state.myuser = index + 1;
-          this.$store.commit("setAuthenticated", true);
-          this.$router.replace({ name: "user" });
-        } else {
+        if (index == -1) {
           alert("The username or password is not correct");
+        } else {
+          if (
+            this.input.username == this.$store.state.users[index].username &&
+            this.input.password == this.$store.state.users[index].password
+          ) {
+            this.$store.state.myuser = index + 1;
+            this.$store.commit("setAuthenticated", true);
+            this.$router.replace({ name: "user" });
+          } else {
+            alert("The username or password is not correct");
+          }
         }
       } else {
         alert("Please fill out");
