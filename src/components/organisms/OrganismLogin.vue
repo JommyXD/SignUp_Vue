@@ -44,9 +44,14 @@ export default {
     login() {
       console.log("Login");
       if (this.input.username != "" || this.input.password != "") {
+        let index = this.$store.state.users.findIndex((item) => {
+          return item.username == this.input.username;
+        });
+        console.log(index);
+        console.log(this.$store.state.users[index].username);
         if (
-          this.input.username == this.$store.state.users.username &&
-          this.input.password == this.$store.state.users.password
+          this.input.username == this.$store.state.users[index].username &&
+          this.input.password == this.$store.state.users[index].password
         ) {
           this.$store.commit("setAuthenticated", true);
           this.$router.replace({ name: "user" });

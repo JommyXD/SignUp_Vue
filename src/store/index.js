@@ -6,17 +6,32 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     authenticated: false,
-    users: [{
+    users: [
+      {
       id: 1,
       username: "admin",
       password: 1234,
       firstname: "Sittisak",
       lastname: "Seti",
-    }]
+      },
+      {
+      id: 2,
+      username: "root",
+      password: 1111,
+      firstname: "Manisara",
+      lastname: "Piboon",
+      },
+
+    ]
   },
   getters: {
-    fullName:state => {
-      return state.users.firstname + ' ' + state.users.lastname
+    fullName:state => id => {
+      let index = state.users.findIndex(e => {
+        e == id
+      })
+      console.log("My index is");
+      console.log(index);
+      return state.users[index+1].firstname + ' ' + state.users[index+1].lastname;
     }
   },
   mutations: {
