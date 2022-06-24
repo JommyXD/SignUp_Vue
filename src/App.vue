@@ -13,4 +13,7 @@
   /* background-color: #2c3e50; */
   /* background-image: url("../src/assets/background/space.webp"); */
 }
+body {
+  background-color: #2c3e50;
+}
 </style>
